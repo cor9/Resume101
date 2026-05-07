@@ -6,7 +6,7 @@ const billyDemo = {
     height: "4'8\"",
     eyes: "Brown",
     hair: "Brown",
-    age: "Plays 8–11",
+    dob: "2015-03-15",
   },
   reps: [
     { type: "Agency", name: "DDO Talent Agency", location: "Los Angeles, CA", phone: "818.555.1212", email: "deborah@ddokidstalent.com" },

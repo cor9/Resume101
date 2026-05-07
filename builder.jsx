@@ -331,7 +331,28 @@ function BuilderPanel({ data, setData }) {
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
           <Field label="Height" value={data.actor.height} onChange={v => updActor('height', v)} placeholder="4'8&quot;" />
-          <Field label="DOB" value={data.actor.age} onChange={v => updActor('age', v)} placeholder="8–11" />
+          <label style={{ display: 'block', marginBottom: 10 }}>
+            <div style={{ fontSize: 10, letterSpacing: 2, textTransform: 'uppercase', color: 'rgba(232,223,202,.55)', marginBottom: 4, fontWeight: 600 }}>Date of Birth</div>
+            <input
+              type="date"
+              value={data.actor.dob || ''}
+              onChange={e => updActor('dob', e.target.value)}
+              style={{
+                width: '100%',
+                background: 'rgba(255,255,255,.04)',
+                border: '1px solid rgba(212,184,118,.22)',
+                color: '#f5efe3',
+                fontFamily: 'Manrope, sans-serif',
+                fontSize: 13,
+                padding: '8px 10px',
+                borderRadius: 4,
+                outline: 'none',
+                colorScheme: 'dark',
+              }}
+              onFocus={e => e.target.style.borderColor = 'rgba(212,184,118,.6)'}
+              onBlur={e => e.target.style.borderColor = 'rgba(212,184,118,.22)'}
+            />
+          </label>
           <Field label="Hair" value={data.actor.hair} onChange={v => updActor('hair', v)} placeholder="Brown" />
           <Field label="Eyes" value={data.actor.eyes} onChange={v => updActor('eyes', v)} placeholder="Brown" />
         </div>

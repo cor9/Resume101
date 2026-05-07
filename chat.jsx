@@ -6,7 +6,7 @@ const CHAT_FLOW = [
   { key: 'name', q: "Hi! I'm here to help build your child's actor resume. What's their full name as it should appear on the resume?", path: ['actor', 'name'] },
   { key: 'union', q: "What's their union status?", path: ['actor', 'union'], options: ["Non-Union", "SAG-Eligible", "SAG-AFTRA", "AEA", "Financial Core"] },
   { key: 'height', q: "Their current height? (e.g. 4'8\")", path: ['actor', 'height'] },
-  { key: 'age', q: "What age range do they play? (e.g. 8–11)", path: ['actor', 'age'] },
+  { key: 'dob', q: "What is your actor's date of birth? (used on the resume — e.g. 2015-03-15)", path: ['actor', 'dob'], inputType: 'date' },
   { key: 'hair', q: "Hair color?", path: ['actor', 'hair'] },
   { key: 'eyes', q: "Eye color?", path: ['actor', 'eyes'] },
   { key: 'rep_yn', q: "Do they have representation (an agent or manager)?", options: ["Yes", "No"] },
@@ -130,12 +130,14 @@ function ChatPanel({ data, setData, onSwitchToForm }) {
           ) : (
             <form onSubmit={e => { e.preventDefault(); if (input.trim()) commit(input.trim()); }} style={{ display: 'flex', gap: 8 }}>
               <input value={input} onChange={e => setInput(e.target.value)} autoFocus
-                placeholder="Type your answer…"
+                type={CHAT_FLOW[step].inputType || 'text'}
+                placeholder={CHAT_FLOW[step].inputType === 'date' ? '' : 'Type your answer…'}
                 style={{
                   flex: 1, background: 'rgba(255,255,255,.05)',
                   border: '1px solid rgba(212,184,118,.3)', color: '#f5efe3',
                   padding: '10px 12px', borderRadius: 4, outline: 'none',
                   fontFamily: 'Manrope, sans-serif', fontSize: 13,
+                  colorScheme: 'dark',
                 }} />
               <button type="submit" style={{
                 padding: '10px 16px', background: 'var(--burgundy)',

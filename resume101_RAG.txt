@@ -1,0 +1,418 @@
+
+RAG Training Data: Child Actor Resume Guide
+
+Here's a structured breakdown of the resume building guide, designed for use as training data for a RAG chatbot.
+
+Section: Actor's Name & Union Status
+
+1. Actor's Name on Resume
+* Topic/Question: What name should I use for the actor on the resume? How do I handle stage names or middle names?
+* Answer/Information: Use the actor’s legal name or their established stage name. Stage names might be used for branding, if it's a common nickname, or if their legal name is already taken in SAG-AFTRA. Avoid using a middle name unless the actor is certain they want it to be part of their official professional name.
+* Keywords: actor name, stage name, legal name, middle name, professional name, resume name
+
+2. Union Status Options
+* Topic/Question: What are the correct union statuses to list on a resume?
+* Answer/Information: The standard union statuses to list are: Non-Union, SAG/AFTRA (eligible) (also written as SAG-e), SAG/AFTRA, or AEA.
+* Keywords: union status, SAG, AFTRA, SAG-e, AEA, non-union, actor unions
+
+Section: Talent Representation
+
+3. Listing Talent Representation
+* Topic/Question: How should I list talent representation like agents or managers? What details are needed?
+* Answer/Information: List talent representation (agency or management), with a maximum of three entries. If possible, include the Company Logo. Essential details are: Company Name, City, State, Office Phone, and the Point Person's email.
+* Keywords: talent representation, agent, manager, agency, contact details, listing agents
+
+4. Contact Information if No Representation
+* Topic/Question: What contact information should be used if the actor doesn't have an agent or manager?
+* Answer/Information: If there's no talent representation, use the contact information for a Parent or Guardian. Include their Name, Phone Number, and Email. In some instances, the actor's own email or website can be listed.
+* Keywords: no agent, no manager, parent contact, guardian contact, actor contact
+
+Section: Headshots
+
+5. Including Headshots on Resume
+* Topic/Question: Can I put headshot thumbnails on the resume?
+* Answer/Information: Yes, you can optionally feature 1 to 3 headshot thumbnails on the resume.
+* Keywords: headshots, thumbnails, photos on resume, resume images
+
+Section: Television Credits
+
+6. Order of Credits: Television First
+* Topic/Question: In what order should I list acting credits? Where do TV credits go?
+* Answer/Information: TELEVISION CREDITS should be listed FIRST on the resume. If the actor has no television credits, then FILM credits should be listed first.
+* Keywords: television credits, TV credits, credit order, resume sections
+
+7. Information Needed for Television Credits
+* Topic/Question: What specific details are required for each television credit?
+* Answer/Information: For each television credit, you need:
+1.  Production Title: This can be the official title, a working title, or an untitled project. You can include an episode number if applicable.
+2.  Role Type: The only accepted options are Co-star, Guest Star, Recurring, or Series Regular.
+3.  Third Column (Most Impressive Entity): This should be the Network, Production Company, Distributor, Producer's Name (e.g., "Gene Gory, prod."), or Director's Name (e.g., "Fran Lebo, dir.").
+* Keywords: TV credit format, production title, role type, co-star, guest star, recurring, series regular, network, production company, director, producer
+
+8. Roles to Exclude from Television Credits
+* Topic/Question: What types of roles or work should NOT be listed under television credits?
+* Answer/Information: Never list featured background work, general background work, or extra work in the television credits section. Also, do not list character names. The actor must have had a speaking role that was documented on the production call sheet.
+* Keywords: background work, extra work, featured background, non-speaking role, speaking role, character names, call sheet
+
+9. Timing for Listing Credits
+* Topic/Question: When is it appropriate to add a new project to the resume?
+* Answer/Information: You can list projects on the resume from the moment the actor begins filming on set, but not any earlier.
+* Keywords: when to list credits, listing new projects, filming, on set
+
+Section: Film Credits
+
+10. Listing Film Credits
+* Topic/Question: How are film credits listed, and what are the role types?
+* Answer/Information: FILM CREDITS are listed SECOND (after television credits, if any). The general rules are similar to television credits, with the main difference being the Role Type, which is either Lead or Supporting. You can optionally denote the film type in parentheses, such as (short), (student film), etc.
+* Keywords: film credits, movie credits, lead role, supporting role, short film, student film, credit order
+
+Section: New Media Credits
+
+11. Listing New Media Credits
+* Topic/Question: What falls under "New Media" credits, and how should they be formatted?
+* Answer/Information: NEW MEDIA credits are listed after Film. This category includes web series, vertical films, other social media content, industrials, and music videos. Note that content on major streaming platforms (like Netflix, Hulu) is considered Television, not New Media.
+* Role Type: Can include Principal, Guest, Host, Supporting, Lead, etc.
+* Third Column: Should list the content platform (e.g., YouTube), director, production company, or specific social media platform.
+* Keywords: new media credits, web series, industrials, music videos, social media content, YouTube, principal role, online content
+
+Section: Commercial Credits
+
+12. Listing Commercial Credits for Representation
+* Topic/Question: How should commercial credits be listed if the resume is for obtaining talent representation?
+* Answer/Information: If the resume's purpose is to secure talent representation, you may list commercial credits.
+* First Column: Use a general "type of product" (e.g., Vehicles, Medical, Cheese, Soft Drink, Theme Park). Do NOT list the specific brand, product name, or company.
+* Second Column: Role type (Principal, Featured).
+* Third Column: Production company or director.
+* Keywords: commercial credits, representation resume, product type, principal commercial, featured commercial
+
+13. Listing Commercial Credits for Casting
+* Topic/Question: How should commercial credits be listed if the resume is for casting submissions?
+* Answer/Information: For resumes intended for casting submissions, it's standard practice to state "List available upon request" for commercials. If you insist on listing them, follow the same format as for representation: 'type of product' (not brand), 'Principal' or 'Featured', and 'production company or director'.
+* Keywords: commercial credits, casting resume, list available upon request, conflicts
+
+Section: Theatre Credits
+
+14. Listing Theatre Credits
+* Topic/Question: What is the format for listing theatre credits?
+* Answer/Information: THEATRE credits are listed next. The format is:
+1.  TITLE of the show.
+2.  Character name: This is the only category where you list the specific character played or "Ensemble."
+3.  Third Column: This should be the Tour, Venue, or sometimes the director.
+* Keywords: theatre credits, theater credits, stage credits, show title, character name, venue, tour, ensemble
+
+Section: Training (Acting-Related)
+
+15. Number of Training Listings
+* Topic/Question: How many training experiences should be listed on the resume?
+* Answer/Information: Aim to list no more than 10-15 training items.
+* Keywords: training section, number of classes, acting classes, workshops
+
+16. Relevance of Training Listed
+* Topic/Question: What type of training should be prioritized in the main training section?
+* Answer/Information: Only list training that is directly relevant to the acting work the actor is seeking. For screen actors, skills like dance, stage combat, vocals (unless specifically for musical theatre if that's a primary goal), and modeling are generally not listed in this main acting training section but can be included under "Additional Training" or "Special Skills."
+* Keywords: acting training, relevant training, on-camera classes, scene study, audition technique
+
+17. Format for Acting Training Listings
+* Topic/Question: What is the correct format for listing acting classes or coaching?
+* Answer/Information: Use the following three-column format for acting training:
+* First Column (CLASS): Use general class names like Scene Study, Audition Technique, Drama Scene, Comedy/TV Comedy, Commercial, Voice Over, On-camera acting, Coaching, Private coaching. Avoid overly specific or unusual class names.
+* Second Column (INSTRUCTOR or SCHOOL): List the name of the instructor or the acting school.
+* Third Column (COMPANY or LOCATION): List the acting company (if applicable) or the City and State where the training took place.
+* Keywords: training format, class name, instructor, school, coach, location
+
+18. Training to Exclude
+* Topic/Question: What types of training should generally be excluded from the main training section?
+* Answer/Information: Do not list workshops in the main training section. Also, avoid listing video-based classes where there was no live, interactive instruction with a teacher.
+* Keywords: workshops, video classes, online courses, self-study, non-interactive training
+
+Section: Pertinent Information
+
+19. Essential Actor Information
+* Topic/Question: What other important personal or logistical details should be included on a resume?
+* Answer/Information: Gather and consider listing pertinent information such as:
+- Valid Passport (Yes/No)
+- Valid Driver's License (if applicable)
+- Up-to-date Vaccinations (often stated as "Fully Vaccinated")
+- Coogan Account holder (Yes/No, for minors in some regions)
+- Valid Work Permits (list states, e.g., CA, GA, NY)
+- Local Hire Cities (list major production hubs like ATL, CHI, ABQ, SEA, NYC, LA, NOLA, etc., but ONLY if the actor can genuinely work there as a local hire, covering their own travel and accommodation).
+* Keywords: passport, driver's license, vaccinations, Coogan account, work permits, child labor laws, local hire, travel status
+
+Section: Additional Training & Special Skills
+
+20. Listing Vocal Skills
+* Topic/Question: How should singing ability or vocal training be listed?
+* Answer/Information: For vocalists, list their singing part (e.g., soprano, alto, tenor, baritone), vocal range if known (e.g., E2 to B7), and the number of years they have been training.
+* Keywords: vocalist, singing skills, voice training, soprano, alto, tenor, vocal range, years training
+
+21. Listing Dance Skills
+* Topic/Question: How should dance training and experience be listed?
+* Answer/Information: For dancing skills, list the style(s) of dance and the number of years of training for each (e.g., HipHop - 4 years, Ballet - 8 years, Tap - 5 years).
+* Keywords: dance skills, dance training, hip hop, ballet, tap, jazz, years training
+
+22. Listing Modeling or Print Experience
+* Topic/Question: How should modeling or print work be mentioned?
+* Answer/Information: If the actor has modeling or print experience, briefly list the experience or type of work in a few words.
+* Keywords: modeling experience, print model, commercial print
+
+23. Listing Sports Skills
+* Topic/Question: How should sports abilities be listed on the resume?
+* Answer/Information: List sports along with years of experience and any notable achievements (e.g., Soccer - 5 years, Swimming - 7 years, Taekwondo (black belt) - 9 years, Football - 3 years). Only list sports where the actor has dedicated significant time and skill, not just casual hobbies.
+* Keywords: sports skills, athletic skills, martial arts, team sports, years experience, proficiency level
+
+24. Other Special Skills
+* Topic/Question: What other types of special skills are valuable to include?
+* Answer/Information: Other skills to consider listing include:
+- Languages spoken fluently.
+- Dialects performed well (e.g., British, Canadian, German, Southern).
+- Performance Awards or recognitions.
+- Anything else that denotes good character, is memorable, or is a unique marketable skill (limit to one or two impactful items if necessary). Examples: Avid Gamer, Volunteer Dog Walker, Local Runway Model, Animator, Puppeteer, Joke Teller, proficient with certain instruments, etc.
+* Keywords: special skills, languages, fluency, dialects, accents, awards, unique talents, hobbies, memorable skills
+
+
+
+
+
+### Section: Actor Name & Union Status
+
+**Q: What name should I use for the actor on the resume?**  
+A: Use the actor’s legal name or their established stage name. Stage names are useful for branding, especially if the legal name is already used in SAG-AFTRA. Avoid using middle names unless part of the official professional identity.
+
+**Q: Should my child’s nickname go on the resume if everyone calls them that?**  
+A: Only if that nickname is their established stage name—otherwise, stick to the legal or registered name for consistency across casting sites and materials.
+
+**Q: What are the correct union statuses to list on a resume?**  
+A: Options include: “Non-Union,” “SAG-AFTRA Eligible” (or “SAG-e”), “SAG-AFTRA,” or “AEA.”
+
+**Q: Can I write 'SAG/AFTRA' if my child is eligible but not a member?**  
+A: No. Use “SAG-AFTRA Eligible” or “SAG-e.” Claiming membership when not paying dues is misleading.
+
+---
+
+### Section: Talent Representation
+
+**Q: How should I list my child’s talent representatives?**  
+A: Include up to three reps: agency, manager, and/or publicist. Each should include name, location (city/state), phone number, and email. Add logos if space allows.
+
+**Q: Should we list a manager if we only have an agent?**  
+A: No need—list only those actively involved in submissions or negotiation.
+
+**Q: What if we don’t have any representation?**  
+A: Use a parent or guardian's name and contact info (professional email preferred). Avoid casual email addresses.
+
+**Q: My child is with different departments within an agency—how do I list that?**  
+A: List the agency once, then clarify which departments represent your child (e.g., “Youth/Commercial/VO”).
+
+**Q: Should I list regional representation and LA/NY separately?**  
+A: If both are actively working roles for the child, yes. Clarify which is handling what.
+
+**Q: What is the Agent Point Person?**  
+A: That’s the specific agent your child interacts with. Include their name and contact info to personalize submissions.
+
+---
+
+### Section: Actor Website & Social Media
+
+**Q: Should I include my child’s actor website on the resume?**  
+A: Yes, if the site is polished, professional, and showcases reels, credits, headshots, and rep info. Use a short URL.
+
+**Q: Can we list social media handles?**  
+A: Only if the account is public, professional, and relevant to casting. Avoid personal or casual profiles.
+
+---
+
+### Section: Headshots
+
+**Q: Do headshots need to match the look on the resume?**  
+A: Yes. Keep resume and headshot current and consistent—especially for hair length, glasses, and braces.
+
+**Q: Should we include black and white photos?**  
+A: Absolutely not. Headshots should always be in color unless you’ve time-traveled from the '90s.
+
+**Q: Can I include thumbnail headshots on the resume?**  
+A: Yes, 1–3 thumbnails are acceptable if layout allows.
+
+---
+
+### Section: Credits – Television
+
+**Q: How should TV credits be ordered?**  
+A: List “TELEVISION” first if the child has any. Otherwise, start with “FILM.”
+
+**Q: What details should I include for each credit?**  
+A: Three-column format:
+1. Production Title (official or working)
+2. Role Type: Co-Star, Guest Star, Recurring, Series Regular
+3. Network, Producer, or Director
+
+**Q: Can I list background work or featured extra roles?**  
+A: No. TV credits must be speaking roles documented on a call sheet.
+
+**Q: When can I list a new project?**  
+A: Once the actor begins filming—not at the time of booking or table read.
+
+---
+
+### Section: Credits – Film
+
+**Q: How are film credits listed?**  
+A: Same three-column format as TV. Role types: “Lead” or “Supporting.” You may indicate format: (short), (student film), etc.
+
+**Q: Can I list unreleased or untitled films?**  
+A: Yes, using “Untitled Project” or working title with director or production company as the third column.
+
+---
+
+### Section: Credits – New Media
+
+**Q: What counts as “New Media”?**  
+A: Web series, vertical video (TikTok, IG Reels, YouTube Shorts), online-only content, music videos, and branded content not airing on traditional TV.
+
+**Q: Can I list a TikTok or YouTube video?**  
+A: Only if it’s a scripted performance produced by someone other than the actor/their parent.
+
+**Q: What roles go here?**  
+A: Principal, Host, Lead, etc. Avoid listing casual social content.
+
+**Q: How do I list vertical content?**  
+A: Note the platform and production context (e.g., “Vertical Short – TikTok Series – Dir. Jane Lee”).
+
+---
+
+### Section: Credits – Commercial
+
+**Q: How do I list commercial work for representation?**  
+A: Use type of product (e.g., "Snack Food"), role (Principal or Featured), and production company/director. Do not use brand names.
+
+**Q: What about commercials for casting submissions?**  
+A: Usually just say: “Commercials – List Available Upon Request.”
+
+---
+
+### Section: Credits – Theatre
+
+**Q: What is the format for theatre credits?**  
+A: Title of production | Character (or Ensemble) | Tour, Venue, or Director. This is the only section where character names are standard.
+
+**Q: Can I list school plays?**  
+A: Yes, especially early on. But remove once professional work accumulates.
+
+---
+
+### Section: Credits – Voice Over
+
+**Q: Should I list VO work separately?**  
+A: Only if it's substantial (multiple jobs, animation, or narration projects). Otherwise, include under relevant section, marked “(VO)” or “(animated).”
+
+**Q: Can I list film dubbing?**  
+A: Yes, under “New Media” or “Film” as appropriate. Specify language version or distributor if known.
+
+---
+
+### Section: Credits – Other Types
+
+**Q: What are Industrials?**  
+A: Internal corporate projects. List like this: “Internal Training Video – Supporting – Acme Corp.”
+
+**Q: Can I list long-form advertising (e.g., branded short films)?**  
+A: Yes, under “New Media” or “Commercial” depending on context.
+
+**Q: Should I include film festival projects?**  
+A: Yes! Especially if selected or awarded. Add: “Official Selection – XYZ Fest” if room allows.
+
+**Q: Clarify the Third Column again?**  
+A: It should be the most impressive connection: network, production company, distributor, director, or producer.
+
+(…more sections coming…)
+
+
+
+### Section: Training
+
+**Q: What counts as valid training?**  
+A: Any live or interactive instruction with a qualified teacher: classes, coaching, workshops. Pre-recorded video series (e.g., MasterClass) do NOT count.
+
+**Q: Can I list Casting Director workshops?**  
+A: Yes, but only in a separate “Additional Training” section if needed. They are not acting classes.
+
+**Q: What about lectures or seminars?**  
+A: These should not be in your core training list unless they involved direct participation.
+
+**Q: Can I list Improv or Sketch?**  
+A: Yes—especially if taught by a respected institution (UCB, Groundlings, etc.). Label clearly as “Improv” or “Sketch Comedy.”
+
+**Q: Is it better to list more classes or better ones?**  
+A: Quality over quantity. Focus on top-tier teachers or those most relevant to on-camera work.
+
+**Q: What’s the best format for listing training?**  
+A: Three columns:
+1. Class Type (Scene Study, Comedy, VO, etc.)
+2. Instructor Name
+3. Company or Location
+
+**Q: Can I merge classes into one line?**  
+A: Yes. If a child took multiple classes with the same coach, list as:
+“Scene Study, Audition Tech – John Smith – Studio 24, LA”
+
+---
+
+### Section: Legal & Administrative Info
+
+**Q: What legal or logistical info should be on the resume?**  
+A: Include these only if true and current:
+- Fully Vaccinated
+- Valid Work Permits (list states)
+- Valid Passport
+- Coogan Account Holder
+- Valid Driver’s License (teens only)
+- Local Hire Cities: Only list if travel/lodging is self-paid and the child can realistically work there.
+- CHSPE/California Proficiency: This is now called the “California Proficiency Program (CPP)” and can be noted for older teens working as adults.
+
+---
+
+### Section: Special Skills
+
+**Q: What should be included here?**  
+A: Only performance-relevant skills like:
+- Dance (style & proficiency)
+- Vocal (range, years training)
+- Musical Instruments
+- Accents/Languages (must be fluent or audition-ready)
+- Athletics (only if skilled or certified)
+- Puppetry, Juggling, Acrobatics, etc.
+
+**Q: Can we list hobbies?**  
+A: Only if directly relevant or unique (e.g., “Skateboarding – Advanced” is good. “Loves baking” is not).
+
+**Q: How do I avoid padding this section?**  
+A: Don’t exaggerate. Only list skills the actor can perform under pressure.
+
+**Q: What should I write for young children?**  
+A: Use observational traits: “Takes direction well,” “Expressive reactions,” “Comfortable with animals.”
+
+**Q: Should we include awards or certifications?**  
+A: Yes, but only if industry-relevant. “Dance National Champion” = yes. “Perfect Attendance” = no.
+
+---
+
+### Section: Casting Director Preferences
+
+**Q: What do casting directors appreciate on a child’s acting resume?**  
+A: They love:
+- Clear Role Descriptions (Lead, Supporting, Co-Star)
+- Relevant & recent experience
+- Professional training
+- Unique, relevant skills
+- Clean, easy formatting
+
+**Q: What do casting directors dislike?**  
+A: They hate:
+- Fluff or padding
+- Character names listed in credits
+- Unverified or exaggerated skills
+- Typos and inconsistent formatting
+- Two-page resumes for beginners
+
+**Q: How to stand out (in a good way)?**  
+A: Tailor the resume to the submission. Proofread. Get input from reps or coaches. Use a clean font. Attach a current headshot. Include a short link to your child’s site or reel if possible.
+
