@@ -95,11 +95,10 @@ const ECOSYSTEM = [
 ];
 
 const AGE_RANGES = ['5–7', '8–10', '11–13', '14–17', '18+'];
-const MARKETS = ['Los Angeles', 'New York', 'Atlanta', 'Southeast', 'Texas', 'Midwest', 'Canada', 'International', 'Other'];
 
 // ─── Email Gate Modal ──────────────────────────────────────────────────────────
 function EmailGateModal({ onSubmit, onClose }) {
-  const [form, setForm] = useStateApp({ parentName: '', email: '', actorName: '', ageRange: '', market: '' });
+  const [form, setForm] = useStateApp({ parentName: '', email: '', actorName: '', ageRange: '' });
   const [loading, setLoading] = useStateApp(false);
   const [error, setError] = useStateApp('');
 
@@ -114,10 +113,11 @@ function EmailGateModal({ onSubmit, onClose }) {
     setLoading(true);
     setError('');
     try {
+      const { parentName, email, actorName, ageRange } = form;
       const res = await fetch('/api/capture-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ parentName, email, actorName, ageRange }),
       });
       if (!res.ok) throw new Error('Submission failed');
       localStorage.setItem('r101_lead', JSON.stringify({ email: form.email, ts: Date.now() }));
@@ -215,15 +215,6 @@ function EmailGateModal({ onSubmit, onClose }) {
                 }}>{r}</button>
               ))}
             </div>
-          </label>
-
-          <label style={{ ...labelStyle, marginBottom: 4 }}>
-            <span style={labelTextStyle}>Nearest Major Market <span style={{ fontSize: 9, opacity: .6 }}>(optional)</span></span>
-            <select value={form.market} onChange={e => set('market', e.target.value)}
-              style={{ ...fieldStyle, colorScheme: 'dark' }}>
-              <option value="">Select a market…</option>
-              {MARKETS.map(m => <option key={m} value={m} style={{ background: '#14233c' }}>{m}</option>)}
-            </select>
           </label>
 
           {error && (

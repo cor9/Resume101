@@ -21,7 +21,7 @@ export default async function handler(req) {
     return new Response('Bad Request', { status: 400 });
   }
 
-  const { parentName, email, actorName, ageRange, market } = body;
+  const { parentName, email, actorName, ageRange } = body;
 
   if (!email || !parentName || !actorName || !ageRange) {
     return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -30,8 +30,8 @@ export default async function handler(req) {
   }
 
   const results = await Promise.allSettled([
-    addToMailerLite({ parentName, email, actorName, ageRange, market }),
-    addToAirtable({ parentName, email, actorName, ageRange, market }),
+    addToMailerLite({ parentName, email, actorName, ageRange }),
+    addToAirtable({ parentName, email, actorName, ageRange }),
   ]);
 
   const errors = results
@@ -48,7 +48,7 @@ export default async function handler(req) {
   });
 }
 
-async function addToMailerLite({ parentName, email, actorName, ageRange, market }) {
+async function addToMailerLite({ parentName, email, actorName, ageRange }) {
   const key = process.env.MAILERLITE_API_KEY;
   const groupId = process.env.MAILERLITE_GROUP_ID;
   if (!key) throw new Error('MAILERLITE_API_KEY not set');
@@ -60,7 +60,6 @@ async function addToMailerLite({ parentName, email, actorName, ageRange, market 
       last_name: '',
       actor_name: actorName,
       age_range: ageRange,
-      market: market || '',
     },
     groups: groupId ? [groupId] : [],
     status: 'active',
@@ -82,7 +81,7 @@ async function addToMailerLite({ parentName, email, actorName, ageRange, market 
   }
 }
 
-async function addToAirtable({ parentName, email, actorName, ageRange, market }) {
+async function addToAirtable({ parentName, email, actorName, ageRange }) {
   const key = process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const table = process.env.AIRTABLE_TABLE_NAME || 'Leads';
@@ -101,7 +100,6 @@ async function addToAirtable({ parentName, email, actorName, ageRange, market })
           'Email': email,
           'Actor Name': actorName,
           'Age Range': ageRange,
-          'Market': market || '',
           'Source': 'Resume101',
           'Submitted At': new Date().toISOString(),
         },
