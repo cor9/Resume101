@@ -240,15 +240,6 @@ function EmailGateModal({ onSubmit, onClose }) {
           }}>
             {loading ? 'Saving…' : '⬇  Send Me My Professional PDF'}
           </button>
-
-          <div style={{ textAlign: 'center', marginTop: 10 }}>
-            <button type="button" onClick={onClose} style={{
-              background: 'transparent', border: 'none',
-              color: 'rgba(232,223,202,.35)', fontSize: 10,
-              fontFamily: 'JetBrains Mono, monospace', letterSpacing: 1,
-              cursor: 'pointer', textDecoration: 'underline',
-            }}>skip for now</button>
-          </div>
         </form>
       </div>
     </div>
@@ -416,7 +407,7 @@ function App() {
       {showGate && (
         <EmailGateModal
           onSubmit={() => { setShowGate(false); triggerPrint(); }}
-          onClose={() => { setShowGate(false); triggerPrint(); }}
+          onClose={() => setShowGate(false)}
         />
       )}
 
