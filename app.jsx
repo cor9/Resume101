@@ -236,7 +236,7 @@ function EmailGateModal({ onSubmit, onClose }) {
             borderTop: '1px solid rgba(212,184,118,.12)', paddingTop: 12, marginTop: 12, marginBottom: 14,
           }}>
             Your information is used to generate your resume, save your progress, and send helpful Child Actor 101 resources. We never sell your information.{' '}
-            <a href="https://www.childactor101.com/privacy" target="_blank" rel="noopener"
+            <a href="https://www.childactor101.com/privacy-policy" target="_blank" rel="noopener"
               style={{ color: 'rgba(212,184,118,.6)', textDecoration: 'underline' }}>Privacy Policy</a>
           </div>
 

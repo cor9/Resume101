@@ -154,14 +154,15 @@ function HeadshotUploader({ data, setData }) {
     reader.readAsDataURL(f);
   }
 
+  const [uploading, setUploading] = useState(false);
+
   function applyCrop() {
     const img = new Image();
-    img.onload = () => {
+    img.onload = async () => {
       const targetW = 400, targetH = 500; // 8x10 ratio
       const canvas = document.createElement('canvas');
       canvas.width = targetW; canvas.height = targetH;
       const ctx = canvas.getContext('2d');
-      // contain by scale
       const baseScale = Math.max(targetW / img.width, targetH / img.height);
       const s = baseScale * crop.scale;
       const drawW = img.width * s, drawH = img.height * s;
@@ -171,10 +172,25 @@ function HeadshotUploader({ data, setData }) {
       ctx.fillStyle = '#fbf8f1';
       ctx.fillRect(0, 0, targetW, targetH);
       ctx.drawImage(img, dx, dy, drawW, drawH);
-      const url = canvas.toDataURL('image/jpeg', 0.9);
-      setData({ ...data, headshot: url });
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+
       setCropping(false);
       setRawSrc(null);
+      setUploading(true);
+
+      // Try cloud upload; fall back to base64 if unavailable
+      try {
+        const res = await fetch('/api/upload-headshot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ dataUrl }),
+        });
+        const json = await res.json();
+        setData({ ...data, headshot: json.url || dataUrl });
+      } catch {
+        setData({ ...data, headshot: dataUrl });
+      }
+      setUploading(false);
     };
     img.src = rawSrc;
   }
@@ -191,12 +207,12 @@ function HeadshotUploader({ data, setData }) {
         </div>
         <div style={{ flex: 1 }}>
           <input ref={fileRef} type="file" accept="image/*" onChange={onFile} style={{ display: 'none' }} />
-          <button onClick={() => fileRef.current?.click()} style={{
-            width: '100%', padding: '8px', background: 'rgba(212,184,118,.12)',
-            border: '1px solid rgba(212,184,118,.4)', color: '#d4b876',
+          <button onClick={() => fileRef.current?.click()} disabled={uploading} style={{
+            width: '100%', padding: '8px', background: uploading ? 'rgba(212,184,118,.06)' : 'rgba(212,184,118,.12)',
+            border: '1px solid rgba(212,184,118,.4)', color: uploading ? 'rgba(212,184,118,.5)' : '#d4b876',
             fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: 1,
-            cursor: 'pointer', borderRadius: 4, textTransform: 'uppercase', marginBottom: 6,
-          }}>{data.headshot ? 'Replace Headshot' : 'Upload Headshot'}</button>
+            cursor: uploading ? 'default' : 'pointer', borderRadius: 4, textTransform: 'uppercase', marginBottom: 6,
+          }}>{uploading ? 'Uploading…' : data.headshot ? 'Replace Headshot' : 'Upload Headshot'}</button>
           {data.headshot && (
             <button onClick={() => setData({ ...data, headshot: null })} style={{
               width: '100%', padding: '6px', background: 'transparent',
