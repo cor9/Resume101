@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume 101 — Industry Standard Youth Actor Resume Builder</title>
+<link rel="icon" href="assets/childactor101-logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Libre+Caslon+Text:wght@400;700&family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14233c;
+    --navy-2: #1c3050;
+    --navy-3: #243d63;
+    --burgundy: #6b1f2a;
+    --burgundy-2: #8a2832;
+    --burgundy-soft: #b8525c;
+    --cream: #f5efe3;
+    --cream-2: #ede4d3;
+    --paper: #fbf8f1;
+    --ink: #1a1a1a;
+    --gold: #b08a3e;
+    --gold-soft: #d4b876;
+    --rule: #cbb893;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; background: #0a1220; color: #e8dfca; font-family: 'Manrope', sans-serif; overflow: hidden; }
+  body { display: flex; }
+  #app { width: 100%; height: 100vh; }
+  /* scrollbars */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(212, 184, 118, .25); border-radius: 10px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(212, 184, 118, .45); }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="data.jsx"></script>
+  <script type="text/babel" src="tips.jsx"></script>
+  <script type="text/babel" src="resume.jsx"></script>
+  <script type="text/babel" src="builder.jsx"></script>
+  <script type="text/babel" src="chat.jsx"></script>
+  <script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
