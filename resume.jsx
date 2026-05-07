@@ -1,4 +1,11 @@
 // Resume — the actual printable artifact.
+// DOB helper: ISO date string → "DOB: MM/DD/YYYY"
+function formatDOB(dob) {
+  if (!dob) return null;
+  const [y, m, d] = dob.split('-');
+  if (!y || !m || !d) return null;
+  return `DOB: ${m}/${d}/${y}`;
+}
 // Three column credits row: Project | Role | Studio
 // Layout variants: classic (headshot top-left, contact top-right),
 //                  banner (centered name banner, headshot below),
@@ -123,7 +130,7 @@ function HeaderClassic({ data, serif, accent }) {
           {data.actor.height && <span>HEIGHT: {data.actor.height}&nbsp;&nbsp;</span>}
           {data.actor.hair && <span>HAIR: {data.actor.hair}&nbsp;&nbsp;</span>}
           {data.actor.eyes && <span>EYES: {data.actor.eyes}&nbsp;&nbsp;</span>}
-          {data.actor.age && <span>{data.actor.age}</span>}
+          {formatDOB(data.actor.dob) && <span>{formatDOB(data.actor.dob)}</span>}
         </div>
       </div>
       <div style={{ textAlign: 'right', fontSize: 10, lineHeight: 1.5, color: '#1a1a1a', minWidth: 180 }}>
@@ -154,7 +161,7 @@ function HeaderBanner({ data, serif, accent }) {
           letterSpacing: 2, lineHeight: 1, textTransform: 'uppercase',
         }}>{data.actor.name}</div>
         <div style={{ marginTop: 8, fontSize: 10, letterSpacing: 2, color: '#333' }}>
-          {[data.actor.height, data.actor.hair && `Hair: ${data.actor.hair}`, data.actor.eyes && `Eyes: ${data.actor.eyes}`, data.actor.age].filter(Boolean).join('  •  ')}
+          {[data.actor.height, data.actor.hair && `Hair: ${data.actor.hair}`, data.actor.eyes && `Eyes: ${data.actor.eyes}`, formatDOB(data.actor.dob)].filter(Boolean).join('  •  ')}
         </div>
       </div>
       <div style={{
@@ -200,7 +207,7 @@ function HeaderSide({ data, serif, accent }) {
           {data.actor.height && <div>HEIGHT: {data.actor.height}</div>}
           {data.actor.hair && <div>HAIR: {data.actor.hair}</div>}
           {data.actor.eyes && <div>EYES: {data.actor.eyes}</div>}
-          {data.actor.age && <div>{data.actor.age}</div>}
+          {formatDOB(data.actor.dob) && <div>{formatDOB(data.actor.dob)}</div>}
         </div>
         {data.reps.slice(0, 2).map((r, i) => (
           <div key={i}>
@@ -261,7 +268,7 @@ function Resume({ data, tweaks }) {
               {data.actor.height && <div>HEIGHT: {data.actor.height}</div>}
               {data.actor.hair && <div>HAIR: {data.actor.hair}</div>}
               {data.actor.eyes && <div>EYES: {data.actor.eyes}</div>}
-              {data.actor.age && <div>{data.actor.age}</div>}
+              {formatDOB(data.actor.dob) && <div>{formatDOB(data.actor.dob)}</div>}
             </div>
           </div>
           <div>
