@@ -109,6 +109,7 @@ async function addToAirtable({ parentName, email, actorName, ageRange }) {
 
   if (!res.ok) {
     const text = await res.text();
+    console.error('Airtable HTTP', res.status, text.slice(0, 200));
     throw new Error(`Airtable error ${res.status}: ${text}`);
   }
 }
