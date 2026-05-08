@@ -112,7 +112,7 @@ function AiChat({ data, onSwitchToForm }) {
             {msg.role === 'assistant' && (
               <div style={{
                 width: 26, height: 26, borderRadius: '50%', flexShrink: 0,
-                background: `center/cover no-repeat url(assets/101logo.jpeg)`,
+                background: `center/cover no-repeat url(assets/101logo.png)`,
                 border: '1px solid rgba(212,184,118,.35)',
               }} />
             )}
@@ -132,7 +132,7 @@ function AiChat({ data, onSwitchToForm }) {
           <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 14 }}>
             <div style={{
               width: 26, height: 26, borderRadius: '50%', flexShrink: 0,
-              background: `center/cover no-repeat url(assets/101logo.jpeg)`,
+              background: `center/cover no-repeat url(assets/101logo.png)`,
               border: '1px solid rgba(212,184,118,.35)',
             }} />
             <div style={{
@@ -219,7 +219,7 @@ function ChatPanel({ data, setData, onSwitchToForm }) {
             <div style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
               <div style={{
                 width: 28, height: 28, borderRadius: '50%',
-                background: `center/cover no-repeat url(assets/101logo.jpeg)`,
+                background: `center/cover no-repeat url(assets/101logo.png)`,
                 flexShrink: 0, border: '1px solid rgba(212,184,118,.35)',
               }} />
               <div style={{

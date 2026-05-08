@@ -138,47 +138,51 @@ function TrainingEditor({ items, setItems }) {
 
 function HeadshotUploader({ data, setData }) {
   const [cropping, setCropping] = useState(false);
-  const [rawSrc, setRawSrc] = useState(null);
-  const [crop, setCrop] = useState({ x: 0.5, y: 0.4, scale: 1 });
+  const [rawSrc, setRawSrc] = useState(null);   // persisted so re-crop is always available
+  const [fitScale, setFitScale] = useState(1);  // computed once per image load
+  const [crop, setCrop] = useState({ x: 0.5, y: 0.5, scale: 1 });
+  const [uploading, setUploading] = useState(false);
   const fileRef = useRef(null);
+
+  const PREVIEW_W = 280, PREVIEW_H = 350;
 
   function onFile(e) {
     const f = e.target.files?.[0];
     if (!f) return;
+    e.target.value = ''; // reset so same file can be re-selected
     const reader = new FileReader();
     reader.onload = () => {
-      setRawSrc(reader.result);
-      setCrop({ x: 0.5, y: 0.4, scale: 1 });
-      setCropping(true);
+      const img = new Image();
+      img.onload = () => {
+        // Scale so the whole image fits inside the preview box (contain)
+        const fs = Math.min(PREVIEW_W / img.width, PREVIEW_H / img.height);
+        setFitScale(fs);
+        setRawSrc(reader.result);
+        setCrop({ x: 0.5, y: 0.5, scale: 1 }); // scale=1 means "fit" (no extra zoom)
+        setCropping(true);
+      };
+      img.src = reader.result;
     };
     reader.readAsDataURL(f);
   }
 
-  const [uploading, setUploading] = useState(false);
-
   function applyCrop() {
     const img = new Image();
     img.onload = async () => {
-      const targetW = 400, targetH = 500; // 8x10 ratio
+      const targetW = 400, targetH = 500;
       const canvas = document.createElement('canvas');
       canvas.width = targetW; canvas.height = targetH;
       const ctx = canvas.getContext('2d');
-      const baseScale = Math.max(targetW / img.width, targetH / img.height);
-      const s = baseScale * crop.scale;
+      // fitScale maps img → preview box; crop.scale is user zoom on top of that
+      const s = fitScale * crop.scale * (Math.max(targetW, targetH) / Math.max(PREVIEW_W, PREVIEW_H));
       const drawW = img.width * s, drawH = img.height * s;
       const cx = crop.x * drawW, cy = crop.y * drawH;
-      const dx = targetW / 2 - cx;
-      const dy = targetH / 2 - cy;
       ctx.fillStyle = '#fbf8f1';
       ctx.fillRect(0, 0, targetW, targetH);
-      ctx.drawImage(img, dx, dy, drawW, drawH);
+      ctx.drawImage(img, targetW / 2 - cx, targetH / 2 - cy, drawW, drawH);
       const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
-
       setCropping(false);
-      setRawSrc(null);
       setUploading(true);
-
-      // Try cloud upload; fall back to base64 if unavailable
       try {
         const res = await fetch('/api/upload-headshot', {
           method: 'POST',
@@ -195,34 +199,50 @@ function HeadshotUploader({ data, setData }) {
     img.src = rawSrc;
   }
 
+  const btnBase = {
+    width: '100%', padding: '7px', background: 'transparent',
+    fontFamily: 'JetBrains Mono, monospace', fontSize: 10, letterSpacing: 1,
+    cursor: 'pointer', borderRadius: 4, textTransform: 'uppercase', marginBottom: 5,
+  };
+
   return (
     <div>
       <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
         <div style={{ width: 88 }}>
           <div style={{
             aspectRatio: '8/10',
-            background: data.headshot ? `center/cover no-repeat url(${data.headshot})` : 'repeating-linear-gradient(135deg, rgba(212,184,118,.15) 0 6px, rgba(212,184,118,.05) 6px 12px)',
+            background: data.headshot
+              ? `center/cover no-repeat url(${data.headshot})`
+              : 'repeating-linear-gradient(135deg, rgba(212,184,118,.15) 0 6px, rgba(212,184,118,.05) 6px 12px)',
             border: '1px solid rgba(212,184,118,.3)', borderRadius: 4,
           }} />
         </div>
         <div style={{ flex: 1 }}>
           <input ref={fileRef} type="file" accept="image/*" onChange={onFile} style={{ display: 'none' }} />
           <button onClick={() => fileRef.current?.click()} disabled={uploading} style={{
-            width: '100%', padding: '8px', background: uploading ? 'rgba(212,184,118,.06)' : 'rgba(212,184,118,.12)',
-            border: '1px solid rgba(212,184,118,.4)', color: uploading ? 'rgba(212,184,118,.5)' : '#d4b876',
-            fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: 1,
-            cursor: uploading ? 'default' : 'pointer', borderRadius: 4, textTransform: 'uppercase', marginBottom: 6,
-          }}>{uploading ? 'Uploading…' : data.headshot ? 'Replace Headshot' : 'Upload Headshot'}</button>
-          {data.headshot && (
-            <button onClick={() => setData({ ...data, headshot: null })} style={{
-              width: '100%', padding: '6px', background: 'transparent',
+            ...btnBase,
+            background: uploading ? 'rgba(212,184,118,.06)' : 'rgba(212,184,118,.12)',
+            border: '1px solid rgba(212,184,118,.4)',
+            color: uploading ? 'rgba(212,184,118,.5)' : '#d4b876',
+            cursor: uploading ? 'default' : 'pointer',
+          }}>{uploading ? 'Uploading…' : data.headshot ? 'Replace Photo' : 'Upload Headshot'}</button>
+
+          {/* Re-crop available whenever rawSrc is loaded */}
+          {rawSrc && !uploading && (
+            <button onClick={() => setCropping(true)} style={{
+              ...btnBase,
+              border: '1px solid rgba(212,184,118,.3)', color: 'rgba(212,184,118,.75)',
+            }}>Re-crop</button>
+          )}
+
+          {data.headshot && !uploading && (
+            <button onClick={() => { setData({ ...data, headshot: null }); setRawSrc(null); }} style={{
+              ...btnBase,
               border: '1px solid rgba(184,82,92,.4)', color: 'var(--burgundy-soft)',
-              fontFamily: 'JetBrains Mono, monospace', fontSize: 10, letterSpacing: 1,
-              cursor: 'pointer', borderRadius: 4, textTransform: 'uppercase',
             }}>Remove</button>
           )}
-          <div style={{ fontSize: 10, color: 'rgba(232,223,202,.5)', marginTop: 6, lineHeight: 1.4 }}>
-            8×10 ratio recommended. You'll be able to crop after upload.
+          <div style={{ fontSize: 10, color: 'rgba(232,223,202,.5)', marginTop: 4, lineHeight: 1.4 }}>
+            8×10 ratio. Drag to reposition, zoom to fill.
           </div>
         </div>
       </div>
@@ -232,7 +252,8 @@ function HeadshotUploader({ data, setData }) {
           src={rawSrc}
           crop={crop}
           setCrop={setCrop}
-          onCancel={() => { setCropping(false); setRawSrc(null); }}
+          fitScale={fitScale}
+          onCancel={() => setCropping(false)}
           onApply={applyCrop}
         />
       )}
@@ -240,7 +261,7 @@ function HeadshotUploader({ data, setData }) {
   );
 }
 
-function CropDialog({ src, crop, setCrop, onCancel, onApply }) {
+function CropDialog({ src, crop, setCrop, fitScale = 1, onCancel, onApply }) {
   const containerRef = useRef(null);
   const dragRef = useRef(null);
 
@@ -284,10 +305,10 @@ function CropDialog({ src, crop, setCrop, onCancel, onApply }) {
             style={{
               position: 'absolute',
               top: '50%', left: '50%',
-              transform: `translate(-50%, -50%) translate(${(0.5 - crop.x) * 100}%, ${(0.5 - crop.y) * 100}%) scale(${crop.scale})`,
-              minWidth: '100%', minHeight: '100%',
+              // fitScale contains the image; crop.scale is extra user zoom
+              transform: `translate(-50%, -50%) translate(${(0.5 - crop.x) * 100}%, ${(0.5 - crop.y) * 100}%) scale(${fitScale * crop.scale})`,
+              width: 'auto', height: 'auto',
               maxWidth: 'none', maxHeight: 'none',
-              objectFit: 'cover',
               userSelect: 'none', pointerEvents: 'none',
             }}
           />
@@ -404,14 +425,15 @@ function BuilderPanel({ data, setData }) {
                 ))}
               </div>
             </div>
-            <Field label="Name" value={r.name} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, name: v } : x))} />
+            <Field label="Agency / Company Name" value={r.name} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, name: v } : x))} />
+            <Field label="Point Person / Dept" value={r.pointPerson} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, pointPerson: v } : x))} placeholder="e.g. Alicia, Voice Over" />
             <Field label="Location" value={r.location} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, location: v } : x))} />
             <Field label="Phone" value={r.phone} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, phone: v } : x))} />
             <Field label="Email" value={r.email} onChange={v => upd('reps', data.reps.map((x, j) => j === i ? { ...x, email: v } : x))} />
           </div>
         ))}
         {data.reps.length < 3 && (
-          <button onClick={() => upd('reps', [...data.reps, { type: 'Agency', name: '', location: '', phone: '', email: '' }])} style={{
+          <button onClick={() => upd('reps', [...data.reps, { type: 'Agency', name: '', pointPerson: '', location: '', phone: '', email: '' }])} style={{
             width: '100%', padding: '8px', background: 'transparent',
             border: '1px dashed rgba(212,184,118,.35)', color: 'rgba(212,184,118,.85)',
             fontFamily: 'JetBrains Mono, monospace', fontSize: 11, letterSpacing: 1,

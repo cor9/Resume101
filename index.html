@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resume 101 — Industry Standard Youth Actor Resume Builder</title>
-<link rel="icon" href="assets/childactor101-logo.jpeg">
+<link rel="icon" href="assets/101logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Libre+Caslon+Text:wght@400;700&family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -33,6 +33,16 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(212, 184, 118, .25); border-radius: 10px; }
   ::-webkit-scrollbar-thumb:hover { background: rgba(212, 184, 118, .45); }
+
+  /* Mobile layout */
+  @media (max-width: 767px) {
+    html, body { overflow: auto; }
+    #app { height: auto; min-height: 100vh; }
+    #app > div { grid-template-columns: 1fr !important; }
+    .left-panel { height: auto !important; min-height: 100vh; }
+    .mobile-controls { display: block !important; }
+    .desktop-only { display: none !important; }
+  }
 </style>
 </head>
 <body>

@@ -9,8 +9,8 @@ const billyDemo = {
     dob: "2015-03-15",
   },
   reps: [
-    { type: "Agency", name: "DDO Talent Agency", location: "Los Angeles, CA", phone: "818.555.1212", email: "deborah@ddokidstalent.com" },
-    { type: "Manager", name: "Bohemia Group", location: "Los Angeles, CA", phone: "310.555.1212", email: "corey@bohemiaent.com" },
+    { type: "Agency", name: "DDO Talent Agency", pointPerson: "Deborah, Theatrical", location: "Los Angeles, CA", phone: "818.555.1212", email: "deborah@ddokidstalent.com" },
+    { type: "Manager", name: "Bohemia Group", pointPerson: "", location: "Los Angeles, CA", phone: "310.555.1212", email: "corey@bohemiaent.com" },
   ],
   television: [
     { project: "All This", role: "Series Regular", studio: "Nockelodeon" },

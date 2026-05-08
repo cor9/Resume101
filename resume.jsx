@@ -139,6 +139,7 @@ function HeaderClassic({ data, serif, accent }) {
             <div style={{ fontFamily: serif, fontWeight: 700, color: accent, fontSize: 11 }}>
               {r.name}{r.type === 'Manager' ? ' (Manager)' : ''}
             </div>
+            {r.pointPerson && <div style={{ fontStyle: 'italic' }}>{r.pointPerson}</div>}
             <div>{r.location}</div>
             <div>{r.phone}</div>
             <div style={{ fontStyle: 'italic' }}>{r.email}</div>
@@ -178,6 +179,7 @@ function HeaderBanner({ data, serif, accent }) {
               {r.name}
             </div>
             <div style={{ fontSize: 9, letterSpacing: 2, textTransform: 'uppercase', color: '#6b1f2a' }}>{r.type}</div>
+            {r.pointPerson && <div style={{ fontStyle: 'italic' }}>{r.pointPerson}</div>}
             <div style={{ marginTop: 3 }}>{r.location}</div>
             <div>{r.phone}</div>
             <div style={{ fontStyle: 'italic' }}>{r.email}</div>
@@ -213,6 +215,7 @@ function HeaderSide({ data, serif, accent }) {
           <div key={i}>
             <div style={{ fontFamily: serif, fontWeight: 700, color: accent, fontSize: 10.5 }}>{r.name}</div>
             <div style={{ fontSize: 8.5, letterSpacing: 2, color: '#6b1f2a', textTransform: 'uppercase' }}>{r.type}</div>
+            {r.pointPerson && <div style={{ fontStyle: 'italic' }}>{r.pointPerson}</div>}
             <div>{r.phone}</div>
             <div style={{ fontStyle: 'italic' }}>{r.email}</div>
           </div>
@@ -255,6 +258,7 @@ function Resume({ data, tweaks }) {
                   {r.name}
                 </div>
                 <div style={{ fontSize: 8.5, letterSpacing: 2, color: '#6b1f2a', textTransform: 'uppercase' }}>{r.type}</div>
+                {r.pointPerson && <div style={{ fontStyle: 'italic' }}>{r.pointPerson}</div>}
                 <div style={{ marginTop: 2 }}>{r.location}</div>
                 <div>{r.phone}</div>
                 <div style={{ fontStyle: 'italic', wordBreak: 'break-all' }}>{r.email}</div>
