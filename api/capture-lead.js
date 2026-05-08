@@ -101,7 +101,7 @@ async function addToAirtable({ parentName, email, actorName, ageRange }) {
           'Actor Name': actorName,
           'Age Range': ageRange,
           'Source': 'Resume101',
-          'Submitted At': new Date().toISOString(),
+          'Submitted at': new Date().toISOString(),
         },
       }],
     }),
