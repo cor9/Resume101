@@ -438,7 +438,7 @@ function App() {
               </div>
             </div>
             <a href="https://www.childactor101.com" target="_blank" rel="noopener">
-              <img src="assets/101logo.jpeg" alt="Child Actor 101"
+              <img src="assets/101logo.png" alt="Child Actor 101"
                 style={{
                   width: 40, height: 40, borderRadius: '50%',
                   objectFit: 'cover',
@@ -489,6 +489,7 @@ function App() {
           }}>
             <span>⬇</span> Export PDF
           </button>
+
           <button onClick={() => { if (confirm('Reset to demo?')) setData(window.billyDemo); }} style={{
             padding: '10px 14px',
             background: 'transparent',
@@ -498,14 +499,72 @@ function App() {
           }}>Reset</button>
         </div>
 
+        {/* PDF tip + mobile style controls */}
+        <div style={{
+          padding: '8px 14px',
+          background: 'rgba(0,0,0,.15)',
+          borderTop: '1px solid rgba(212,184,118,.1)',
+        }}>
+          <div style={{ fontSize: 10, color: 'rgba(232,223,202,.38)', lineHeight: 1.5, textAlign: 'center' }}>
+            In the print dialog, choose <strong style={{ color: 'rgba(212,184,118,.5)' }}>Save as PDF</strong> as the destination.
+          </div>
+        </div>
+
+        {/* Mobile-only style controls (layout / font / accent) */}
+        <div className="mobile-controls" style={{ display: 'none' }}>
+          <div style={{
+            padding: '10px 14px 8px',
+            borderTop: '1px solid rgba(212,184,118,.18)',
+            background: 'rgba(0,0,0,.2)',
+          }}>
+            <div style={{ fontSize: 8.5, letterSpacing: 2.5, color: 'rgba(212,184,118,.55)', fontFamily: 'JetBrains Mono, monospace', marginBottom: 8 }}>
+              STYLE OPTIONS
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, alignItems: 'center' }}>
+              {/* Layout */}
+              <div style={{ display: 'flex', gap: 4 }}>
+                {[{v:'classic',l:'Classic'},{v:'banner',l:'Banner'},{v:'side',l:'Side'}].map(o => (
+                  <button key={o.v} onClick={() => setTweak('layout', o.v)} style={{
+                    padding: '5px 9px', fontSize: 10, letterSpacing: .5,
+                    background: tweaks.layout === o.v ? 'rgba(212,184,118,.15)' : 'transparent',
+                    color: tweaks.layout === o.v ? '#d4b876' : 'rgba(232,223,202,.55)',
+                    border: `1px solid ${tweaks.layout === o.v ? 'rgba(212,184,118,.5)' : 'rgba(212,184,118,.15)'}`,
+                    borderRadius: 3, cursor: 'pointer',
+                    fontFamily: 'JetBrains Mono, monospace', textTransform: 'uppercase',
+                  }}>{o.l}</button>
+                ))}
+              </div>
+              {/* Accent swatches */}
+              <div style={{ display: 'flex', gap: 5 }}>
+                {[{v:'#14233c',l:'Navy'},{v:'#6b1f2a',l:'Burgundy'},{v:'#1a3d2e',l:'Forest'},{v:'#2a2a2a',l:'Charcoal'}].map(a => (
+                  <button key={a.v} onClick={() => setTweak('accent', a.v)} title={a.l} style={{
+                    width: 20, height: 20, borderRadius: '50%', background: a.v, cursor: 'pointer',
+                    border: tweaks.accent === a.v ? '2px solid #d4b876' : '1px solid rgba(212,184,118,.25)',
+                  }} />
+                ))}
+              </div>
+              {/* Font */}
+              <select value={tweaks.fontPair} onChange={e => setTweak('fontPair', e.target.value)} style={{
+                background: 'rgba(255,255,255,.04)', color: '#f5efe3',
+                border: '1px solid rgba(212,184,118,.25)', padding: '4px 6px',
+                borderRadius: 3, fontFamily: 'JetBrains Mono, monospace', fontSize: 10,
+              }}>
+                {Object.entries(window.FONT_PAIRS).map(([k, v]) =>
+                  <option key={k} value={k} style={{ background: '#14233c' }}>{v.label}</option>
+                )}
+              </select>
+            </div>
+          </div>
+        </div>
+
         {/* Ecosystem upsell */}
         <div style={{ overflow: 'auto', maxHeight: '38vh', flexShrink: 0 }}>
           <EcosystemPanel />
         </div>
       </div>
 
-      {/* RIGHT: Preview */}
-      <div style={{
+      {/* RIGHT: Preview — hidden on mobile, controls moved to left panel */}
+      <div className="desktop-only" style={{
         position: 'relative', overflow: 'hidden',
         background: `
           radial-gradient(circle at 30% 20%, rgba(107,31,42,.28), transparent 50%),
