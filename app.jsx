@@ -97,7 +97,7 @@ const ECOSYSTEM = [
 const AGE_RANGES = ['5–7', '8–10', '11–13', '14–17', '18+'];
 
 // ─── Email Gate Modal ──────────────────────────────────────────────────────────
-function EmailGateModal({ onSubmit, onClose }) {
+function EmailGateModal({ onSubmit, onClose, resumeData }) {
   const [form, setForm] = useStateApp({ parentName: '', email: '', actorName: '', ageRange: '' });
   const [loading, setLoading] = useStateApp(false);
   const [error, setError] = useStateApp('');
@@ -117,7 +117,7 @@ function EmailGateModal({ onSubmit, onClose }) {
       const res = await fetch('/api/capture-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ parentName, email, actorName, ageRange }),
+        body: JSON.stringify({ parentName, email, actorName, ageRange, resumeJson: resumeData ? JSON.stringify(resumeData) : '' }),
       });
       if (!res.ok) throw new Error('Submission failed');
       localStorage.setItem('r101_lead', JSON.stringify({ email: form.email, ts: Date.now() }));
@@ -406,6 +406,7 @@ function App() {
     }}>
       {showGate && (
         <EmailGateModal
+          resumeData={data}
           onSubmit={() => { setShowGate(false); triggerPrint(); }}
           onClose={() => setShowGate(false)}
         />

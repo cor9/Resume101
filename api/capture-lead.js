@@ -21,7 +21,7 @@ export default async function handler(req) {
     return new Response('Bad Request', { status: 400 });
   }
 
-  const { parentName, email, actorName, ageRange } = body;
+  const { parentName, email, actorName, ageRange, resumeJson } = body;
 
   if (!email || !parentName || !actorName || !ageRange) {
     return new Response(JSON.stringify({ error: 'Missing required fields' }), {
@@ -31,7 +31,7 @@ export default async function handler(req) {
 
   const results = await Promise.allSettled([
     addToMailerLite({ parentName, email, actorName, ageRange }),
-    addToAirtable({ parentName, email, actorName, ageRange }),
+    addToAirtable({ parentName, email, actorName, ageRange, resumeJson }),
   ]);
 
   const errors = results
@@ -81,7 +81,7 @@ async function addToMailerLite({ parentName, email, actorName, ageRange }) {
   }
 }
 
-async function addToAirtable({ parentName, email, actorName, ageRange }) {
+async function addToAirtable({ parentName, email, actorName, ageRange, resumeJson }) {
   const key = process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const table = process.env.AIRTABLE_TABLE_NAME || 'Leads';
@@ -102,6 +102,7 @@ async function addToAirtable({ parentName, email, actorName, ageRange }) {
           'Age Range': ageRange,
           'Source': 'Resume101',
           'Submitted at': new Date().toISOString(),
+          'RESUME JSON': resumeJson || '',
         },
       }],
     }),
