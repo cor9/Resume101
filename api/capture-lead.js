@@ -38,10 +38,10 @@ export default async function handler(req) {
     .filter(r => r.status === 'rejected')
     .map(r => r.reason?.message || 'unknown');
 
-  if (errors.length === 2) {
-    // Both failed — log but still return success so the user gets their PDF
-    console.error('capture-lead: both integrations failed', errors);
-  }
+  const [mlResult, atResult] = results;
+  if (mlResult.status === 'rejected') console.error('capture-lead: MailerLite failed:', mlResult.reason?.message);
+  if (atResult.status === 'rejected') console.error('capture-lead: Airtable failed:', atResult.reason?.message);
+  console.log('capture-lead: ML=' + mlResult.status + ' AT=' + atResult.status);
 
   return new Response(JSON.stringify({ ok: true }), {
     status: 200, headers: { 'Content-Type': 'application/json' },
